@@ -1,32 +1,19 @@
-import kotlin.runCatching as runCatching
-
 fun interface InputStream {
-    fun readLine(): String?
+    fun readInt(): Int
 }
 
 class View(
     private val inputStream: InputStream
 ) {
-    private fun readInt(): Int {
-        val value = inputStream.readLine()
-        requireNotNull(value) { "null이 될 수 없습니다" }
-        return runCatching {
-            value.toInt()
-        }.getOrElse { throw IllegalArgumentException("값이 정수여야 합니다") }
-    }
-
     fun enterPurchaseAmount(): PurchaseAmount {
         println("구입금액을 입력해 주세요.")
-        return PurchaseAmount(readInt())
+        return PurchaseAmount(inputStream.readInt())
     }
-}
 
-data class PurchaseAmount(
-    val amount: Int
-) {
-    init {
-        if (amount <= 0) {
-            throw IllegalArgumentException()
-        }
+    fun enterManualLotteryPaperNum(totalNum: Int): Int {
+        println("수동으로 구매할 로또 수를 입력해 주세요.")
+        val value = inputStream.readInt()
+        require(value <= totalNum) { "총 구매 수를 넘을 수 없어요" }
+        return value
     }
 }
