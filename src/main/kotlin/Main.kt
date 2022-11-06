@@ -1,5 +1,6 @@
-val view = View(inputStream = CliInputStream())
-
 fun main() {
-    val purchaseAmount = view.enterPurchaseAmount()
+    val lottoGame = LottoGame(inputStream = CliInputStream())
+
+    lottoGame.enterPurchaseAmount()
+    lottoGame.enterManualLotteryPaperCount()
 }
