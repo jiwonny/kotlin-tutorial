@@ -4,7 +4,7 @@ class LottoNumbers(
     private val lotteryNumbers: MutableList<LottoNumber> = mutableListOf()
 
     companion object {
-        val price = PurchaseAmount(1000)
+        val price = MoneyAmount(1000)
         const val VALID_SIZE = 6
     }
 

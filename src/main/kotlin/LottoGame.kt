@@ -6,12 +6,12 @@ class LottoGame(
     private val view = View(inputStream)
     private val countCalculator = CountCalculator(LottoNumbers.price)
 
-    private lateinit var purchaseAmount: PurchaseAmount
+    private lateinit var purchaseAmount: MoneyAmount
     private var lotteryPaperCount by Delegates.notNull<Int>()
     private var manualLotteryPaperCount by Delegates.notNull<Int>()
 
     fun enterPurchaseAmount() {
-        purchaseAmount = PurchaseAmount(view.getPrice())
+        purchaseAmount = MoneyAmount(view.getPrice())
         lotteryPaperCount = countCalculator.getCount(purchaseAmount)
     }
 

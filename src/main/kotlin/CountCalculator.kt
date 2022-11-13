@@ -1,7 +1,7 @@
 class CountCalculator(
-    private val price: PurchaseAmount
+    private val price: MoneyAmount
 ) {
-    fun getCount(purchaseAmount: PurchaseAmount): Int {
-        return purchaseAmount.amount / price.amount
+    fun getCount(purchaseAmount: MoneyAmount): Int {
+        return purchaseAmount / price
     }
 }
